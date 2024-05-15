@@ -1,0 +1,18 @@
+@import "../../styles/variables.scss";
+
+.header_container {
+    min-height: 120px;
+    width: 100%;
+    padding: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo_container {
+    width: 255px;
+
+    @media (max-width: $maxMobWidth) {
+        width: 150px;
+    }
+}

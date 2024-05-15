@@ -1,0 +1,15 @@
+body {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    margin : 0;
+}
+
+main {
+    flex-grow: 1;
+    min-height: 100dvh;
+}
+
+* {
+    box-sizing: border-box;
+}
