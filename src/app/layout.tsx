@@ -6,6 +6,13 @@ import Navigation from "@/components/Navigation/Navigation";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "../theme";
+import { Afacad } from 'next/font/google'
+
+const afacad = Afacad({
+  subsets: ['latin'],
+  display: 'swap',
+})
+ 
 
 export const metadata: Metadata = {
   title: {
@@ -22,7 +29,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={afacad.className}>
       <body>
         <AppRouterCacheProvider>
           <ThemeProvider theme={theme}>

@@ -3,6 +3,7 @@
 
 .nav_container {
     @include desktopSidePaddings;
+    margin-bottom: 40px;
 }
 
 .nav_list {
