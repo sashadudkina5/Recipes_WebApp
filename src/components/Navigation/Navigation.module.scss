@@ -1,0 +1,25 @@
+@import "../../styles/mixins.scss";
+@import "../../styles/variables.scss";
+
+.nav_container {
+    @include desktopSidePaddings;
+    margin-bottom: 40px;
+}
+
+.nav_list {
+    @include listDefalt;
+    padding: 20px 50px;
+    border-top: 1px solid $additional_color;
+    border-bottom: 1px solid $additional_color;
+    width: 100%;
+    display: flex;
+    column-gap: 25px;
+    justify-content: center;
+}
+
+.nav_item {
+    text-decoration: none;
+    color: $main_text_color;
+    font-size: 30px;
+    font-weight: 500;
+}

@@ -1,0 +1,10 @@
+@mixin listDefalt {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+@mixin desktopSidePaddings {
+    margin-right: 165px;
+    margin-left: 165px;
+}
