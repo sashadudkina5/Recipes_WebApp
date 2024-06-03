@@ -6,7 +6,6 @@
     justify-content: center;
     align-items: stretch;
     min-height: 900px;
-    @include desktopSidePaddings;
     width: auto;
     background-color: $section_background;
 }
@@ -66,6 +65,7 @@
     padding: 15px;
     border-radius: 20px;
     margin-bottom: 80px;
+     font-family: inherit;
 }
 
 .random_meal_details_wrapper {

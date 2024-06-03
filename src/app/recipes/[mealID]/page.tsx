@@ -5,9 +5,9 @@ import {
   formatTextAsList,
   embedYouTubeUrl,
 } from "@/utils/service";
-import { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
 import styles from "./[mealID].module.scss";
+import useFetch from "@/utils/hooks";
 
 type Props = {
   params: {
@@ -16,23 +16,8 @@ type Props = {
 };
 
 export default function RecipePages({ params }: Props) {
-  const [mealInfo, setMealInfo] = useState<null | any>(null);
-  const [loading, setLoading] = useState(false);
 
-  const getMealInfo = useCallback(async () => {
-    setLoading(true);
-    try {
-      const fetchedMeal = await fetchMealInfo(params.mealID);
-      setMealInfo(fetchedMeal);
-    } catch (error) {
-      console.error(error);
-    }
-    setLoading(false);
-  }, []);
-
-  useEffect(() => {
-    getMealInfo();
-  }, [getMealInfo]);
+  const { data: mealInfo, loading } = useFetch(fetchMealInfo, params.mealID);
 
   if (loading) {
     return <div>Loading...</div>;
@@ -67,24 +52,29 @@ export default function RecipePages({ params }: Props) {
       </div>
 
       <div className={styles.meal_ingredients_wrapper}>
-        <h2 className={styles.meal_ingredients_title}>Ingredients:</h2>
-        <ul>
+        <h2 className={styles.meal_ingredients_title}>Ingredients</h2>
+        <ul className={styles.meal_ingredients_list}>
           {ingredients.map((ingredient, index) => (
-            <li key={index}>
+            <li key={index} className={styles.meal_ingredients_item_wrapper}>
               <span className={styles.meal_ingredients_item}>
-                {ingredient} - {measures[index]}
+                {ingredient}
+              </span>
+              <span className={styles.meal_ingredients_item}>
+                {measures[index]}
               </span>
             </li>
           ))}
         </ul>
       </div>
-
+      <div className={styles.meal_instructions_wrapper}>
+      <h2 className={styles.meal_instructions_title}>Instructions</h2>
       <div
         dangerouslySetInnerHTML={{
           __html: formatTextAsList(meal.strInstructions),
         }}
         className={styles.meal_instructions}
       />
+      </div>
 
 <div className={styles.meal_instructions_video_wrapper}>
   <iframe

@@ -3,29 +3,13 @@
 import Image from "next/image";
 import RandomMealStyles from "./RandomMeal.module.scss";
 import Link from "next/link";
-import { useCallback, useEffect, useState } from "react";
 import { fetchRandomMeal } from "@/utils/api";
 import CircularProgress from "@mui/material/CircularProgress";
+import useFetch from "@/utils/hooks";
 
 export default function RandomMeal() {
-  const [randomMeal, setRandomMeal] = useState<null | any>(null);
-  const [loading, setLoading] = useState(false);
 
-  const getMeal = useCallback(async () => {
-    setRandomMeal(null)
-    setLoading(true);
-    try {
-      const fetchedMeal = await fetchRandomMeal();
-      setRandomMeal(fetchedMeal);
-    } catch (error) {
-      console.log(error)
-    }
-    setLoading(false);
-  }, []);
-
-  useEffect(() => {
-    getMeal();
-  }, [getMeal]);
+  const { data: randomMeal, loading, refetch } = useFetch(fetchRandomMeal);
 
   return (
     <section className={RandomMealStyles.random_meal_wrapper}>
@@ -37,7 +21,7 @@ export default function RandomMeal() {
             <Image
               alt={randomMeal?.strMeal || "Random meal image"}
               src={randomMeal?.strMealThumb}
-              layout="fill"
+              fill
               style={{objectFit: "cover"}}
             />
           </div>
@@ -61,7 +45,7 @@ export default function RandomMeal() {
 
             <button
               className={RandomMealStyles.random_meal_another_btn}
-              onClick={getMeal}
+              onClick={refetch}
             >
               Show me another random meal
             </button>

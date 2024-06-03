@@ -9,7 +9,7 @@ export default function AppHeader() {
             <Image
                 src={Logo}
                 alt="Logo"
-                layout="responsive"
+                priority={true}
             />
             </div>
         </header>

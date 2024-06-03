@@ -1,3 +1,5 @@
+@import "../styles/mixins.scss";
+
 body {
     display: flex;
     flex-direction: column;
@@ -8,8 +10,25 @@ body {
 main {
     flex-grow: 1;
     min-height: 100dvh;
+    @include desktopSidePaddings;
 }
 
 * {
     box-sizing: border-box;
+}
+
+h1 {
+    font-size: 80px;
+}
+
+.datamaps-hoverover {
+
+
+    .hoverinfo {
+        font-size: 30px;
+        padding: 10px;
+        border-radius: 20px;
+        border: none;
+        font-family: 'Afacad', sans-serif;
+    }
 }

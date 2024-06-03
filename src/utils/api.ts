@@ -1,44 +1,54 @@
 import axios from 'axios';
+import sharp from 'sharp';
 
-/**
- * returns an oject of a random meal info
- * @returns
- */
-export async function fetchRandomMeal() {
-  try {
-    const response = await axios.get('https://www.themealdb.com/api/json/v1/1/random.php');
-    return response.data.meals[0];
-  } catch (error) {
-    console.error('Error getting random meal:', error);
-    throw error;
-  }
-}
+const BASE_URL = "https://www.themealdb.com/api/json/v1/1/";
 
-/**
- * returns an array of caregories
- * @returns
- */
-export async function fetchCategoriesList() {
+// Generic function to perform GET requests
+async function fetchFromAPI(endpoint: string) {
   try {
-    const response = await axios.get('https://www.themealdb.com/api/json/v1/1/list.php?i=list');
+    const url = `${BASE_URL}${endpoint}`;
+    const response = await axios.get(url);
     return response.data;
   } catch (error) {
-    console.error('Error getting category list:', error);
+    console.error(`Error fetching data from endpoint ${endpoint}:`, error);
     throw error;
   }
 }
 
+
 /**
- * returns an object with meal info by id
- * @returns
+ * Returns an object of a random meal info
  */
-export async function fetchMealInfo(mealID: string) {
-  try {
-    const response = await axios.get(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealID}`);
-    return response.data;
-  } catch (error) {
-    console.error('Error getting meal info by id:', error);
-    throw error;
-  }
+export function fetchRandomMeal() {
+  return fetchFromAPI('random.php').then(data => data.meals[0]);
 }
+
+/**
+ * Returns object with an array of categories
+ */
+export function fetchCategoriesList() {
+  return fetchFromAPI('list.php?c=list');
+}
+
+/**
+ * Returns object with an array of regions
+ */
+export function fetchRegionsList() {
+  return fetchFromAPI('list.php?a=list');
+}
+
+/**
+ * Returns an object with meal info by id
+ */
+export function fetchMealInfo(mealID: string) {
+  return fetchFromAPI(`lookup.php?i=${mealID}`);
+}
+
+/**
+ * Returns object with an array with meals by category
+ */
+export function fetchMealsByCategory(categoryName: string) {
+  return fetchFromAPI(`filter.php?c=${categoryName}`);
+}
+
   
