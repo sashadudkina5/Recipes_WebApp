@@ -1,36 +1,31 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Recipes_WebApp
 
-## Getting Started
+This repository contains a pet project built using TypeScript, Next.js, Axios, and SCSS modules. The application interacts with [TheMealDB API](https://www.themealdb.com/api) to fetch and display meal data.
 
-First, run the development server:
+## Project Structure
 
-```bash
+- **dev branch**: Active development happens here. Features and components are developed and tested in this branch.
+- **master branch**: Contains the finished and stable parts of the application. Merges from the dev branch are made into the master branch once features are complete and tested.
+
+## Technologies Used
+
+- **TypeScript**
+- **Next.js**
+- **SCSS Modules**
+
+## API Usage
+The project uses [TheMealDB API](https://www.themealdb.com/api) to fetch meal data. The API provides various endpoints to get information about meals, ingredients, categories, and more. Axios is used to make HTTP requests to these endpoints.
+
+## Setup and Installation
+
+Clone the repository: git clone https://github.com/sashadudkina5/Recipes_WebApp.git
+
+Install dependencies:
+
+npm i
+
+Start the application:
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
