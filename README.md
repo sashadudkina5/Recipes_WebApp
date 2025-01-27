@@ -11,7 +11,6 @@ This repository contains a pet project built using TypeScript, Next.js, Axios, a
 
 - **TypeScript**
 - **Next.js**
-- **Axios**
 - **SCSS Modules**
 
 ## API Usage

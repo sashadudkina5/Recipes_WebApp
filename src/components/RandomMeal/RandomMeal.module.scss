@@ -1,0 +1,81 @@
+@import "../../styles/mixins.scss";
+@import "../../styles/variables.scss";
+
+.random_meal_wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    min-height: 900px;
+    width: auto;
+    background-color: $section_background;
+}
+
+.random_meal_img_wrapper {
+    width: 60%;
+    min-height: 900px;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.random_meal_info_wrapper {
+    width: 40%;
+    padding: 80px 50px;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.random_meal_title, .random_meal_name, .random_meal_area, .random_meal_category {
+    margin: 0;
+}
+
+.random_meal_title {
+    font-size: 55px;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+.random_meal_name {
+    font-size: 45px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.random_meal_tags_container {
+    display: flex;
+    justify-content: start;
+    gap: 15px;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.random_meal_tag {
+    font-size: 20px;
+    font-weight: 300;
+}
+
+.random_meal_another_btn {
+    border: none;
+    background-color: $button_color;
+    color: $contrast_text_color;
+    font-size: 30px;
+    font-weight: 300;
+    padding: 15px;
+    border-radius: 20px;
+    margin-bottom: 80px;
+     font-family: inherit;
+}
+
+.random_meal_details_wrapper {
+    flex-grow: 1;
+}
+
+.random_meal_open_link {
+    display: block;
+    font-size: 25px;
+    font-weight: 300;
+    text-decoration: none;
+    color: $link_color;
+}

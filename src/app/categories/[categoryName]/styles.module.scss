@@ -1,0 +1,29 @@
+.image_wrapper {
+    width: auto;
+    height: 500px;
+    overflow: hidden;
+    position: relative;
+}
+
+.category_list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 50px;
+    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+}
+
+.category_item {
+    padding: 60px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 4px 12px;
+    text-decoration: none;
+    color: inherit;
+    width: 100%;
+}
+
+.category_meal_title {
+    margin-bottom: 0;
+    font-size: 30px;
+}
